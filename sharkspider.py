@@ -4,6 +4,7 @@ import requests
 import re
 import time
 import os
+import platform
 from lxml import etree
 
 g_index = 0
@@ -16,6 +17,12 @@ Base_url = 'https://movie.douban.com/top250'
 home = os.environ['HOME']
 tmpre=time.strftime("%Y%m%d-%H%M%S", time.localtime())
 file_out = home + '/work/scripts/movies-' + tmpre + '.csv'
+
+def isWindows:
+    return 'Windows' in platform.system()
+
+def isLinux:
+    return 'Linux' in platform.system()
 
 def crawl_top250_url(base_url):
     global g_s0, g_sall
@@ -146,7 +153,9 @@ def init_file_navigation(file):
 def crawl_set_and_save_to_file(s, file, dep):
     for url in s:
         #with open(file, 'a', encoding='utf-8_sig') as fp:  #for windows run
-        with open(file, 'a') as fp:
+        if (isWindows):
+            coding = 'utf-8_sig'
+        with open(file, 'a', encoding=coding) as fp:
             crawl_url_and_save_to_file(url, fp, dep)
         fp.close()
         time.sleep(3)
