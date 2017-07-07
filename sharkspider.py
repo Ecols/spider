@@ -49,7 +49,7 @@ def print_top250_url():
 
 def crawl_url_and_save_to_file(url, fp, dep):
     global g_index, g_loop, g_sn, g_sall
-	timepre = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    timepre = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     print("[%s] crawl url: %s"%(timepre,url))
     g_index, g_loop = g_index + 1, g_loop + 1
     req = requests.get(url)
