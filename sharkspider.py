@@ -16,12 +16,13 @@ g_sall=set()
 Base_url = 'https://movie.douban.com/top250'
 home = os.environ['HOME']
 tmpre=time.strftime("%Y%m%d-%H%M%S", time.localtime())
-file_out = home + '/work/scripts/movies-' + tmpre + '.csv'
+pwd=os.getcwd()
+file_out = pwd + '/movies-' + tmpre + '.csv'
 
-def isWindows:
+def isWindows():
     return 'Windows' in platform.system()
 
-def isLinux:
+def isLinux():
     return 'Linux' in platform.system()
 
 def crawl_top250_url(base_url):
@@ -48,7 +49,8 @@ def print_top250_url():
 
 def crawl_url_and_save_to_file(url, fp, dep):
     global g_index, g_loop, g_sn, g_sall
-    print("crawl url: %s"%url)
+	timepre = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    print("[%s] crawl url: %s"%(timepre,url))
     g_index, g_loop = g_index + 1, g_loop + 1
     req = requests.get(url)
     page_sel = etree.HTML(req.text)
@@ -158,7 +160,7 @@ def crawl_set_and_save_to_file(s, file, dep):
         with open(file, 'a', encoding=coding) as fp:
             crawl_url_and_save_to_file(url, fp, dep)
         fp.close()
-        time.sleep(3)
+        time.sleep(5)
 
 
 def crawl_loop(depth):
