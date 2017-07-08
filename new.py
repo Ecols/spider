@@ -1,6 +1,8 @@
 import re
 import sys
 
+new_start = []
+
 if_def = 'test.csv'
 of_def = 'urls.csv'
 ifile = sys.argv[1] if len(sys.argv) > 1 else if_def
