@@ -21,4 +21,5 @@ with open(ifile, "r", encoding='utf-8_sig') as fin, open(ofile, "w", encoding='u
                 fout.write(url+'\n')
         else:
             break
+
 print("len=%s"%len(urls))
