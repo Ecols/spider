@@ -11,6 +11,7 @@ class g_set_cls():
     g_index = 0
     g_loop = 0
     g_depth = 10
+    g_delay = 5
     g_s0=set()
     g_sn=set()
     g_sall=set()
@@ -222,7 +223,7 @@ def crawl_set_and_save_to_file(g_set, dep):
         with open(g_set.file_out, 'a', encoding=coding) as fp:
             crawl_url_and_save_to_file(g_set, dep, url, fp)
         fp.close()
-        time.sleep(5)
+        time.sleep(g_set.g_delay)
 
 def crawl_loop(g_set):
     print("g_s0=%s"%g_set.g_s0)
