@@ -23,15 +23,20 @@ elif (len(sys.argv) == 2):
 else:
     wflg = int(sys.argv[-1]) if (len(sys.argv) > 2 and (re.search('^[0-1]$', sys.argv[-1]))) else 0
     list = sys.argv[1:-1] if (len(sys.argv) > 2 and (re.search('^[0-1]$', sys.argv[-1]))) else sys.argv[1:]
+    ss.init_file_navigation(f_name)
     dblist = cb.combine(list, f_name, wflg)
     print("len(dblist)=%s" % (len(dblist)))
     exit()
 
 gs0 = ss.g_set_cls()
-gs0.g_s0 = {'https://movie.douban.com/subject/25985465/',
-            'https://movie.douban.com/subject/26877237/',
-            'https://movie.douban.com/subject/26340301/',
-            'https://movie.douban.com/subject/27041519/'}
+gs0.g_s0 = {'https://movie.douban.com/subject/26420932/',
+            'https://movie.douban.com/subject/26935251/',
+            'https://movie.douban.com/subject/26884892/',
+            'https://movie.douban.com/subject/26528871/',
+            'https://movie.douban.com/subject/26668283/',
+            'https://movie.douban.com/subject/26606743/',
+            'https://movie.douban.com/subject/26362764/',
+            'https://movie.douban.com/subject/26309788/'}
 gs0.g_sall = set(dblist)
 print("len(gs0.g_s0)=%s"%(len(gs0.g_s0)))
 print("len(gs0.g_sall)=%s"%(len(gs0.g_sall)))

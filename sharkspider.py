@@ -144,7 +144,8 @@ def crawl_url_and_save_to_file(g_set, dep, url, fp):
         return
 
 def init_file_navigation(file):
-    with open(file, 'a') as fp:
+    enc = 'utf-8_sig' if (util.isWindows) else 'utf-8'
+    with open(file, 'a', encoding=enc) as fp:
         fp.write('i00_are0,i01_indx,i02_name,i03_rate,'
                  'i04_year,i05_drct,i06_type,i07_long,'
                  'i08_area,i09_cmnt,i10_sbid,i11_dlnk,'
