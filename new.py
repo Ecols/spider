@@ -21,17 +21,20 @@ if (len(sys.argv) == 1):
 elif (len(sys.argv) == 2):
     dblist = cb.combine(sys.argv[1:], f_name, 0)
 else:
-    wflg = int(sys.argv[2]) if (len(sys.argv) > 2 and (re.search('^[0-1]$', sys.argv[2]))) else 0
-    list = sys.argv[1:-1] if (len(sys.argv) > 2 and (re.search('^[0-1]$', sys.argv[2]))) else sys.argv[1:]
+    wflg = int(sys.argv[-1]) if (len(sys.argv) > 2 and (re.search('^[0-1]$', sys.argv[-1]))) else 0
+    list = sys.argv[1:-1] if (len(sys.argv) > 2 and (re.search('^[0-1]$', sys.argv[-1]))) else sys.argv[1:]
     dblist = cb.combine(list, f_name, wflg)
     print("len(dblist)=%s" % (len(dblist)))
     exit()
 
 gs0 = ss.g_set_cls()
-gs0.g_s0 = {'https://movie.douban.com/subject/25933890/',
-            'https://movie.douban.com/subject/25812712/'}
+gs0.g_s0 = {'https://movie.douban.com/subject/25985465/',
+            'https://movie.douban.com/subject/26877237/',
+            'https://movie.douban.com/subject/26340301/',
+            'https://movie.douban.com/subject/27041519/'}
 gs0.g_sall = set(dblist)
-
+print("len(gs0.g_s0)=%s"%(len(gs0.g_s0)))
+print("len(gs0.g_sall)=%s"%(len(gs0.g_sall)))
 ss.init_file_navigation(gs0.file_out)
 ss.crawl_loop(gs0)
 
