@@ -4,7 +4,8 @@ import re
 import time
 
 def combine(inf_list, outfile, wflg):
-    enc = 'utf-8_sig' if (util.isWindows) else 'utf-8'
+    #enc = 'utf-8_sig' if (util.isWindows) else 'utf-8'
+    enc = 'utf-8'
     only_list, ofp = [], ''
     t0=time.time()
     if (wflg):

@@ -15,10 +15,17 @@ class g_set_cls():
     g_s0=set()
     g_sn=set()
     g_sall=set()
+    Domain='https://movid.douban.com'
     Base_url = 'https://movie.douban.com/top250'
     tmpre=time.strftime("%Y%m%d-%H%M%S", time.localtime())
     pwd=os.getcwd()
     file_out = pwd + '/movies-' + tmpre + '.csv'
+
+def crawl_weekly_top10(g_set):
+    page_url = g_set.Domain
+    page_sel = etree.HTML(requests.get(page_url).text)
+    top10_url = page_sel.xpath('//div[@class="billboard-bd"]/table/tr/td[2]/a/@href')
+    g_set.g_s0 = set(top10_url)
 
 def crawl_top250_url(g_set):
     page_url = g_set.Base_url
