@@ -15,7 +15,7 @@ class g_set_cls():
     g_s0=set()
     g_sn=set()
     g_sall=set()
-    Domain='https://movid.douban.com'
+    Domain='https://movie.douban.com'
     Base_url = 'https://movie.douban.com/top250'
     tmpre=time.strftime("%Y%m%d-%H%M%S", time.localtime())
     pwd=os.getcwd()
