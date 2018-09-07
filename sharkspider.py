@@ -227,7 +227,8 @@ def crawl_url_and_print(url):
 def crawl_set_and_save_to_file(g_set, dep):
     for url in g_set.g_s0:
         #with open(file, 'a', encoding='utf-8_sig') as fp:  #for windows run
-        coding = 'utf-8_sig' if (util.isWindows) else 'utf-8'
+        #coding = 'utf-8_sig' if (util.isWindows) else 'utf-8'
+        coding = 'utf-8'
         with open(g_set.file_out, 'a', encoding=coding) as fp:
             crawl_url_and_save_to_file(g_set, dep, url, fp)
         fp.close()
