@@ -21,7 +21,6 @@ if (len(sys.argv) == 1):
     gs0 = ss.g_set_cls()
     gs0.g_sall = set(dblist)
     ss.crawl_weekly_top10(gs0)
-    print(gs0.g_s0)
     ss.init_file_navigation(gs0.file_out)
     ss.crawl_loop(gs0)
     exit()

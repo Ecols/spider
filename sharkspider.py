@@ -59,8 +59,8 @@ def crawl_url_and_save_to_file(g_set, dep, url, fp):
             g_set.g_sn.add(link)
 
     if (url in g_set.g_sall):
-        timepre = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        print("[%s] skip url: %s" % (timepre, url))
+        #timepre = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+        #print("[%s] skip url: %s" % (timepre, url))
         return
 
     rate = page_sel.xpath('//strong/text()')
