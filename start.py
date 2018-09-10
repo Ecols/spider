@@ -29,8 +29,7 @@ if (len(sys.argv) == 1):
 elif (len(sys.argv) == 2):
     dblist = cb.combine(sys.argv[1:], f_name, 0)
     gs0 = ss.g_set_cls()
-    gs0.g_s0 = {'https://movie.douban.com/subject/26336252/',
-                'https://movie.douban.com/subject/27093707/',}
+    gs0.g_s0 = {'https://movie.douban.com/subject/27165956/'}
     gs0.g_sall = set(dblist)
     print("len(gs0.g_s0)=%s"%(len(gs0.g_s0)))
     print("len(gs0.g_sall)=%s"%(len(gs0.g_sall)))

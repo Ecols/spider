@@ -48,8 +48,6 @@ def print_top250_url(g_set):
         print ("idx=%s,url=%s" % (idx, url))
 
 def crawl_url_and_save_to_file(g_set, dep, url, fp):
-    timepre = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    print("[%s] crawl url: %s"%(timepre, url))
     g_set.g_loop = g_set.g_loop + 1
     req = requests.get(url)
     page_sel = etree.HTML(req.text)
@@ -225,11 +223,13 @@ def crawl_url_and_print(url):
         print("i14_dtop=%s" % i14_dtop)
 
 def crawl_set_and_save_to_file(g_set, dep):
-    for url in g_set.g_s0:
-        #with open(file, 'a', encoding='utf-8_sig') as fp:  #for windows run
+    for idx,url in enumerate(g_set.g_s0):
         #coding = 'utf-8_sig' if (util.isWindows) else 'utf-8'
         coding = 'utf-8'
+        setcnt = len(g_set.g_s0)
         with open(g_set.file_out, 'a', encoding=coding) as fp:
+            timepre = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+            print("[%s] [dep:%s,%d|%d] crawl url: %s"%(timepre, dep, idx + 1, setcnt, url))
             crawl_url_and_save_to_file(g_set, dep, url, fp)
         fp.close()
         time.sleep(g_set.g_delay)
