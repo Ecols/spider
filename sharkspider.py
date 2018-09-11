@@ -229,7 +229,8 @@ def crawl_set_and_save_to_file(g_set, dep):
         setcnt = len(g_set.g_s0)
         with open(g_set.file_out, 'a', encoding=coding) as fp:
             timepre = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-            print("[%s] [dep:%s,%d|%d] crawl url: %s"%(timepre, dep, idx + 1, setcnt, url))
+            print("[%s] [dep:%2d/%2d,%4d|%4d] [dep-%-2d:%4d] Crawl url: %s"
+                %(timepre, dep, g_set.g_depth, idx + 1, setcnt, dep + 1, len(g_set.g_sn), url))
             crawl_url_and_save_to_file(g_set, dep, url, fp)
         fp.close()
         time.sleep(g_set.g_delay)
